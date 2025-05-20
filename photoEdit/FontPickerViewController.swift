@@ -9,10 +9,10 @@ class FontPickerViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    weak var delegate: FontPickerDelegate?
+    weak var delegate: FontPickerDelegate? //Font seçimi başka bir ViewController’a bildirilecekse bu kullanılacak
     var currentFontName: String = "Helvetica"
     
-    let allFonts = UIFont.familyNames.sorted()
+    let allFonts = UIFont.familyNames.sorted()//Sistem fontlarının isim listesidir
     var filteredFonts: [String] = []
     var favoriteFonts: [String] = []
     
@@ -26,17 +26,19 @@ class FontPickerViewController: UIViewController, UITableViewDataSource, UITable
         
         tableView.dataSource = self
         tableView.delegate = self
-        searchBar.delegate = self // ✅ Arama çubuğu delegesi
+        searchBar.delegate = self
 
         if let savedFavorites = UserDefaults.standard.array(forKey: "Favori Fontlar") as? [String] {
-            favoriteFonts = savedFavorites
+            favoriteFonts = savedFavorites //Uygulama açıldığında daha önce kaydedilen favori fontlar varsa UserDefaults'tan alınır
         }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-    
+    //Eğer section 0: Favori fontlar gösterilir.
+   // section 1: Arama yapılıyorsa filteredFonts, değilse tüm fontlar gösterilir.
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return favoriteFonts.count
@@ -55,7 +57,7 @@ class FontPickerViewController: UIViewController, UITableViewDataSource, UITable
         }
         
         let fontName = indexPath.section == 0 ? favoriteFonts[indexPath.row] : (isSearching ? filteredFonts[indexPath.row] : allFonts[indexPath.row])
-        
+        //Hücrede font adı yazılır ve aynı font ile görselleştirilir
         cell.fontNameLabel.text = fontName
         cell.fontNameLabel.font = UIFont(name: fontName, size: 18)
         
@@ -73,7 +75,7 @@ class FontPickerViewController: UIViewController, UITableViewDataSource, UITable
         
         return cell
     }
-    
+    //favorileri yıldızlama 
     @objc func toggleFavorite(_ sender: UIButton) {
         let fontName = allFonts[sender.tag]
         

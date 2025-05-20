@@ -1,6 +1,7 @@
 import UIKit
 import Photos
 import CoreLocation
+//Gesture Recognizer kullanıcı etkileşimleri için
 
 class PhotoDetailViewController: UIViewController {
     
@@ -28,7 +29,7 @@ class PhotoDetailViewController: UIViewController {
         }
     }
     
-    var isTextEditingMode = false {
+    var isTextEditingMode = false { //Metin düzenleme modunun açık olup olmadığını kontrol eder
         didSet {
             textToolbar.isHidden = !isTextEditingMode
             fontNameButton.isHidden = !isTextEditingMode
@@ -141,7 +142,7 @@ class PhotoDetailViewController: UIViewController {
             }
         }
     }
-
+//Onları imageView üzerine çizmek için kullanılır (görselin üzerine metin çizme)
     private func drawLabel(label: UILabel) {
         guard label.superview != nil, !label.isHidden else { return }
         
@@ -211,7 +212,7 @@ class PhotoDetailViewController: UIViewController {
         label.backgroundColor = .clear
         label.center = view.center
         label.isUserInteractionEnabled = true
-        view.addSubview(label)
+        view.addSubview(label) // labelı ekranda göster
         
         textAttributes[label] = TextAttributes(
             fontName: defaultFontName,
@@ -345,16 +346,16 @@ class PhotoDetailViewController: UIViewController {
     }
 
     // MARK: - Gestures
-    private func addPanGesture(to view: UIView) {
+    private func addPanGesture(to view: UIView) {//sürükleme 
         let pan = UIPanGestureRecognizer(target: self, action: #selector(handlePan(_:)))
         view.addGestureRecognizer(pan)
     }
     
     private func addTapGestureToLabel(_ label: UILabel) {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:)))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:))) //UITapGestureRecognizer – "Tıklama" hareketi algılayıcı
         label.addGestureRecognizer(tap)
     }
-    
+    //Metin etiketi sürüklenebilir hale gelir
     @objc func handlePan(_ gesture: UIPanGestureRecognizer) {
         guard let view = gesture.view else { return }
         let translation = gesture.translation(in: self.view)
@@ -412,8 +413,6 @@ class PhotoDetailViewController: UIViewController {
         if let fontPickerVC = storyboard.instantiateViewController(withIdentifier: "FontPickerViewController") as? FontPickerViewController {
             fontPickerVC.delegate = self
             present(fontPickerVC, animated: true, completion: nil)
-        } else {
-            print("⚠️ FontPickerViewController bulunamadı. Storyboard ID kontrol et.")
         }
     }
 }

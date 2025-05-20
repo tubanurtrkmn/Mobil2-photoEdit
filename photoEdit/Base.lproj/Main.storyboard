@@ -107,7 +107,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0p-pE-EBJ">
-                                <rect key="frame" x="211" y="118" width="90" height="35"/>
+                                <rect key="frame" x="203" y="118" width="90" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="✏️Metin"/>
@@ -211,7 +211,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Mavi ve Pembe Yumuşak Sulu Boya Yazısız Telefon Duvar Kağıdı" translatesAutoresizingMaskIntoConstraints="NO" id="d4g-ee-D7h">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Mavi ve Pembe Yumuşak Sulu Boya Yazısız Telefon Duvar Kağıdı 1" translatesAutoresizingMaskIntoConstraints="NO" id="d4g-ee-D7h">
                                 <rect key="frame" x="0.0" y="-269" width="410" height="1420"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -260,7 +260,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Mavi ve Pembe Yumuşak Sulu Boya Yazısız Telefon Duvar Kağıdı" width="1080" height="1920"/>
+        <image name="Mavi ve Pembe Yumuşak Sulu Boya Yazısız Telefon Duvar Kağıdı 1" width="1080" height="1920"/>
         <image name="arrowshape.turn.up.left.circle.fill" catalog="system" width="128" height="123"/>
         <image name="bold" catalog="system" width="128" height="128"/>
         <image name="italic" catalog="system" width="115" height="128"/>
